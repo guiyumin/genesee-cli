@@ -1,4 +1,4 @@
-"""Codon TUI Application."""
+"""Genesee TUI Application."""
 
 from collections.abc import Iterable
 from pathlib import Path
@@ -33,26 +33,20 @@ class FilteredDirectoryTree(DirectoryTree):
 
 
 SPLASH_ASCII = """\
-[bold cyan]   ██████╗ ██████╗ ██████╗  ██████╗ ███╗   ██╗[/]
-[bold cyan]  ██╔════╝██╔═══██╗██╔══██╗██╔═══██╗████╗  ██║[/]
-[bold cyan]  ██║     ██║   ██║██║  ██║██║   ██║██╔██╗ ██║[/]
-[bold cyan]  ██║     ██║   ██║██║  ██║██║   ██║██║╚██╗██║[/]
-[bold cyan]  ╚██████╗╚██████╔╝██████╔╝╚██████╔╝██║ ╚████║[/]
-[bold cyan]   ╚═════╝ ╚═════╝ ╚═════╝  ╚═════╝ ╚═╝  ╚═══╝[/]
-[bold cyan]  ███████╗███████╗███╗   ██╗███████╗███████╗[/]
-[bold cyan]  ██╔════╝██╔════╝████╗  ██║██╔════╝██╔════╝[/]
-[bold cyan]  ███████╗█████╗  ██╔██╗ ██║███████╗█████╗[/]
-[bold cyan]  ╚════██║██╔══╝  ██║╚██╗██║╚════██║██╔══╝[/]
-[bold cyan]  ███████║███████╗██║ ╚████║███████║███████╗[/]
-[bold cyan]  ╚══════╝╚══════╝╚═╝  ╚═══╝╚══════╝╚══════╝[/]
+[bold cyan]   ██████╗ ███████╗███╗   ██╗███████╗███████╗███████╗███████╗[/]
+[bold cyan]  ██╔════╝ ██╔════╝████╗  ██║██╔════╝██╔════╝██╔════╝██╔════╝[/]
+[bold cyan]  ██║  ███╗█████╗  ██╔██╗ ██║█████╗  ███████╗█████╗  █████╗  [/]
+[bold cyan]  ██║   ██║██╔══╝  ██║╚██╗██║██╔══╝  ╚════██║██╔══╝  ██╔══╝  [/]
+[bold cyan]  ╚██████╔╝███████╗██║ ╚████║███████╗███████║███████╗███████╗[/]
+[bold cyan]   ╚═════╝ ╚══════╝╚═╝  ╚═══╝╚══════╝╚══════╝╚══════╝╚══════╝[/]
 
-[dim]Welcome to Codon Sense[/]"""
+[dim]Gene See — AI for Biomedical Research[/]"""
 
 
-class CodonApp(App[None]):
-    """The main Codon TUI application."""
+class GeneseeApp(App[None]):
+    """The main Genesee TUI application."""
 
-    TITLE = "Codon Sense"
+    TITLE = "Genesee"
     CSS = """
     Screen {
         background: $surface;
@@ -184,8 +178,8 @@ class CodonApp(App[None]):
 
 
 def main() -> None:
-    """Entry point for the Codon TUI."""
-    app = CodonApp()
+    """Entry point for the Genesee TUI."""
+    app = GeneseeApp()
     app.run()
 
 

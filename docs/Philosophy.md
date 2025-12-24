@@ -1,4 +1,4 @@
-# Codon: Product Philosophy
+# Genesee: Product Philosophy
 
 ## The Vision
 
@@ -168,7 +168,7 @@ Like Claude Code, but for biomedical research:
 
 ### 3. TUI First, Intuitive Always
 
-The user runs `codon` — nothing else. No commands, no flags, no arguments. Everything happens inside an intuitive TUI (Text User Interface).
+The user runs `genesee` — nothing else. No commands, no flags, no arguments. Everything happens inside an intuitive TUI (Text User Interface).
 
 Why TUI over CLI commands:
 - **Zero learning curve** — no syntax to memorize
@@ -207,7 +207,7 @@ The workflow is designed around the deliverable.
 
 **V1 is successful when:**
 
-Dr. Ma runs `codon`, and without hesitation or confusion, walks into her biomarker team meeting 10 minutes later with a presentation that:
+Dr. Ma runs `genesee`, and without hesitation or confusion, walks into her biomarker team meeting 10 minutes later with a presentation that:
 - Summarizes the evidence landscape
 - Cites authoritative sources
 - Identifies evidence gaps

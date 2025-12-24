@@ -1,7 +1,7 @@
 [project]
-name = "codon"
+name = "genesee"
 version = "0.1.0"
-description = "A pure TUI application for terminal productivity"
+description = "AI for biomedical research - by Genesee Sciences"
 requires-python = ">=3.10"
 dependencies = [
     "textual>=0.89.1",
@@ -10,7 +10,7 @@ dependencies = [
 ]
 
 [project.scripts]
-codon = "codon.app:main"
+genesee = "genesee.app:main"
 
 [build-system]
 requires = ["hatchling"]

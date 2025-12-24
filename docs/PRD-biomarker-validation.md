@@ -2,7 +2,8 @@
 
 ## Overview
 
-**Product:** Codon - Biomarker Evidence Synthesis Tool
+**Product:** Genesee - Biomarker Evidence Synthesis Tool
+**Company:** Genesee Sciences
 **Target User:** Translational cancer researchers in biotech/pharma
 **First User:** Dr. Jianhui Ma, BeOne Medicines
 
@@ -177,7 +178,7 @@ An AI-powered tool that takes a candidate biomarker as input and produces a stru
 
 The model is **agentic chat**, not forms. Like Claude Code, but specialized for life sciences:
 
-- Run `codon` in a project directory
+- Run `genesee` in a project directory
 - Chat naturally about your research
 - Tools get called automatically (PubMed, trials, genomics, etc.)
 - Results appear in a rich TUI
@@ -189,11 +190,11 @@ Researchers have multiple ongoing projects, each with subprojects:
 
 ```
 ~/research/
-├── egfr-nsclc-study/           ← run `codon` here
+├── egfr-nsclc-study/           ← run `genesee` here
 │   ├── literature/
 │   ├── biomarkers/
 │   ├── notes.md
-│   └── .codonsense/            ← project state/history
+│   └── .genesee/            ← project state/history
 │       ├── history.json
 │       ├── cache/
 │       └── lancedb/            ← vector embeddings
@@ -201,20 +202,20 @@ Researchers have multiple ongoing projects, each with subprojects:
 └── ctdna-monitoring-panel/
 ```
 
-Each directory is a project context. Codon scans files, builds a tree, understands what you're working on.
+Each directory is a project context. Genesee scans files, builds a tree, understands what you're working on.
 
 ### Launch
 
 ```bash
 $ cd ~/research/egfr-nsclc-study
-$ codon
+$ genesee
 ```
 
 ### TUI Layout
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│  🧬 Codon                                            egfr-nsclc-study       │
+│  🧬 Genesee                                          egfr-nsclc-study       │
 ├────────────────────────┬────────────────────────────────────────────────────┤
 │                        │                                                    │
 │  📁 Project Files      │  Chat                                              │
@@ -228,7 +229,7 @@ $ codon
 │    notes.md            │  │ Querying EGFR mutations in lung cancer...   │   │
 │                        │  └─────────────────────────────────────────────┘   │
 │                        │                                                    │
-│                        │  Codon: Based on cBioPortal data, EGFR mutations   │
+│                        │  Genesee: Based on cBioPortal data, EGFR mutations   │
 │                        │  occur in approximately 15-20% of NSCLC cases.     │
 │                        │                                                    │
 │                        │  The most common mutations are:                    │
@@ -258,7 +259,7 @@ You: Find recent clinical trials for EGFR inhibitors in NSCLC
 │ Found: 47 trials                                            │
 └─────────────────────────────────────────────────────────────┘
 
-Codon: I found 47 recent trials. Here are the most relevant:
+Genesee: I found 47 recent trials. Here are the most relevant:
 
 1. **NCT05774951** - Osimertinib + Chemotherapy (Phase 3)
    Sponsor: AstraZeneca | Status: Recruiting
@@ -277,6 +278,7 @@ Codon: I found 47 recent trials. Here are the most relevant:
 ### Tool Results are Interactive
 
 When tools return results, the user can:
+
 - **Save** — add to project files
 - **Copy** — to clipboard
 - **Export** — to markdown, CSV, or PPT
@@ -287,16 +289,17 @@ When tools return results, the user can:
 
 These aren't simple function calls — they're **specialized subagents** that can reason, make multiple API calls, and synthesize results. Like Claude Code's Task tool spawning agents.
 
-| Subagent | Capability |
-|----------|------------|
+| Subagent     | Capability                                                                                          |
+| ------------ | --------------------------------------------------------------------------------------------------- |
 | `literature` | Searches PubMed + Semantic Scholar, filters by relevance, summarizes key findings, tracks citations |
-| `trials` | Queries ClinicalTrials.gov, understands phases/status, identifies competitors |
-| `genomics` | Queries cBioPortal, interprets mutation frequencies, finds co-occurring alterations |
-| `chemistry` | Queries PubChem/ChEMBL, retrieves compound structures, drug properties, ADMET data |
-| `files` | Reads/writes project files, understands context from existing documents |
-| `synthesize` | Combines information from multiple sources into coherent summaries |
+| `trials`     | Queries ClinicalTrials.gov, understands phases/status, identifies competitors                       |
+| `genomics`   | Queries cBioPortal, interprets mutation frequencies, finds co-occurring alterations                 |
+| `chemistry`  | Queries PubChem/ChEMBL, retrieves compound structures, drug properties, ADMET data                  |
+| `files`      | Reads/writes project files, understands context from existing documents                             |
+| `synthesize` | Combines information from multiple sources into coherent summaries                                  |
 
 Each subagent:
+
 - Understands natural language intent
 - Makes multiple API calls if needed
 - Filters and ranks results
@@ -304,12 +307,12 @@ Each subagent:
 
 ### Context Awareness
 
-Codon understands project context:
+Genesee understands project context:
 
 ```
 You: What biomarkers should I add to this panel?
 
-Codon: Based on your project files, you're studying EGFR resistance
+Genesee: Based on your project files, you're studying EGFR resistance
 in NSCLC. Looking at candidates.csv, you already have:
 - EGFR (primary)
 - KRAS (exclusion)
@@ -338,7 +341,7 @@ Let me search for commonly co-occurring mutations...
 
 ### In Scope (V1)
 
-- **TUI with agentic chat** (just run `codon`)
+- **TUI with agentic chat** (just run `genesee`)
 - **Project awareness** — scans directory, builds file tree, understands context
 - **Natural language input** — ask questions, get answers
 - **Core subagents:**
@@ -348,7 +351,7 @@ Let me search for commonly co-occurring mutations...
   - `chemistry` — PubChem/ChEMBL, compound data, drug properties
   - `files` — read/write project files, context extraction
 - **Interactive results** — save, copy, export, discard
-- **Conversation history** — persisted in `.codonsense/`
+- **Conversation history** — persisted in `.genesee/`
 - **Markdown export**
 
 ### Out of Scope (V1)
@@ -418,31 +421,31 @@ Let me search for commonly co-occurring mutations...
                             ▼
 ┌─────────────────────────────────────────────────────────────┐
 │                   Project State                              │
-│  .codonsense/history.json  — conversation history           │
-│  .codonsense/cache/        — cached API responses           │
-│  .codonsense/lancedb/      — vector embeddings (LanceDB)    │
+│  .genesee/history.json  — conversation history           │
+│  .genesee/cache/        — cached API responses           │
+│  .genesee/lancedb/      — vector embeddings (LanceDB)    │
 │  project files             — user's research documents      │
 └─────────────────────────────────────────────────────────────┘
 ```
 
 ---
 
-## Existing Components (from codon-sense)
+## Existing Components (from genesee-desktop)
 
-The `codon-sense` PySide6 project has reusable backend components:
+The `genesee-desktop` PySide6 project has reusable backend components:
 
-| Module | Description | Reuse |
-|--------|-------------|-------|
-| `search/pubmed.py` | PubMed E-utilities API client, XML parsing | ✅ Direct |
-| `search/semantic_scholar.py` | Semantic Scholar API client | ✅ Direct |
-| `search/arxiv.py` | ArXiv search client | ✅ Direct |
-| `search/vector_search.py` | Vector/semantic search | 🔄 Rewrite with LanceDB |
-| `ai/providers.py` | Anthropic, OpenAI, Ollama abstraction | ✅ Direct |
-| `ai/embeddings.py` | Embedding generation | ✅ Direct |
-| `core/document.py` | Document model with sources, chunking | ✅ Direct |
-| `core/pdf_processor.py` | PDF text extraction | ✅ Direct |
-| `core/database.py` | SQLite for document metadata | 🔄 Adapt (metadata only, vectors → LanceDB) |
-| `ui/*` | PySide6 widgets | ❌ Replace with Textual |
+| Module                       | Description                                | Reuse                                       |
+| ---------------------------- | ------------------------------------------ | ------------------------------------------- |
+| `search/pubmed.py`           | PubMed E-utilities API client, XML parsing | ✅ Direct                                   |
+| `search/semantic_scholar.py` | Semantic Scholar API client                | ✅ Direct                                   |
+| `search/arxiv.py`            | ArXiv search client                        | ✅ Direct                                   |
+| `search/vector_search.py`    | Vector/semantic search                     | 🔄 Rewrite with LanceDB                     |
+| `ai/providers.py`            | Anthropic, OpenAI, Ollama abstraction      | ✅ Direct                                   |
+| `ai/embeddings.py`           | Embedding generation                       | ✅ Direct                                   |
+| `core/document.py`           | Document model with sources, chunking      | ✅ Direct                                   |
+| `core/pdf_processor.py`      | PDF text extraction                        | ✅ Direct                                   |
+| `core/database.py`           | SQLite for document metadata               | 🔄 Adapt (metadata only, vectors → LanceDB) |
+| `ui/*`                       | PySide6 widgets                            | ❌ Replace with Textual                     |
 
 **Strategy:** Extract the `search/`, `ai/`, and `core/` modules into a shared package, then build TUI on top.
 
@@ -512,6 +515,7 @@ The `codon-sense` PySide6 project has reusable backend components:
 **Our positioning:** Claude Code for biomedical research.
 
 **Our differentiator:**
+
 - Real-time data from authoritative biomedical sources (PubMed, trials, genomics)
 - AI synthesis with citations
 - Project-aware context
