@@ -40,7 +40,7 @@ SPLASH_ASCII = """\
 [bold cyan]  ╚██████╔╝███████╗██║ ╚████║███████╗███████║███████╗███████╗[/]
 [bold cyan]   ╚═════╝ ╚══════╝╚═╝  ╚═══╝╚══════╝╚══════╝╚══════╝╚══════╝[/]
 
-[dim]Gene See — AI for Biomedical Research[/]"""
+[dim]Genesee — AI for Biomedical and Pharmaceutical Research[/]"""
 
 
 class GeneseeApp(App[None]):
