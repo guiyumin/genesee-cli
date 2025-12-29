@@ -5,7 +5,7 @@ description = "AI for biomedical research - by Genesee Sciences"
 requires-python = ">=3.10"
 dependencies = [
     "textual>=6.11.0",
-    "rich>=13.9.4",
+    "rich>=14.2.0",
     "prompt-toolkit>=3.0.48",
 ]
 
