@@ -16,7 +16,7 @@ dependencies = [
 requires-dist = [
     { name = "prompt-toolkit", specifier = ">=3.0.48" },
     { name = "rich", specifier = ">=13.9.4" },
-    { name = "textual", specifier = ">=0.89.1" },
+    { name = "textual", specifier = ">=6.11.0" },
 ]
 
 [[package]]

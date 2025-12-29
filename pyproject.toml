@@ -4,7 +4,7 @@ version = "0.1.0"
 description = "AI for biomedical research - by Genesee Sciences"
 requires-python = ">=3.10"
 dependencies = [
-    "textual>=0.89.1",
+    "textual>=6.11.0",
     "rich>=13.9.4",
     "prompt-toolkit>=3.0.48",
 ]
